@@ -11,5 +11,4 @@ function sortByString(s, t) {
   }
   return result.join("");
 }
-
 sortByString("weather", "therapyw");
