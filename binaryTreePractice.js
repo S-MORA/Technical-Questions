@@ -99,7 +99,6 @@ class BST {
   }
 }
 
-
 let bst = new BST();
 bst.push(3);
 bst.push(2);
