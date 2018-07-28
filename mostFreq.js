@@ -19,7 +19,6 @@ function fib(num) {
 
 console.log(fib(30))
 
-
 function reverseStringInline(str) {
   return result = str.split('').reverse().join('')
 }
@@ -128,7 +127,6 @@ arr = ['map', 'art', 'how', 'rat', 'tar', 'who', 'pam', 'shoop']
 console.log(objSz(anagramGrouper(arr)))
 
 
-
 function evalEq(str) {
   let result = 0;
   for (let i = 0; i < str.length; i++) {
@@ -167,3 +165,47 @@ function palindrom4(str) {
   }
   return result
 }
+
+
+function removeSmallest(arr) {
+  let smallest = arr[0]
+  for (let i = 1; i < arr.length; i++) {
+    if (smallest < arr[i] === false) {
+      smallest = arr[i]
+    }
+  }
+  let indexofsmallest = arr.findIndex(item => item == smallest)
+  let spliced = arr.splice(indexofsmallest, 1)
+  return arr
+}
+removeSmallest([52, 2, 3, 4, 0, 10, 0])
+
+function remove(arr) {
+  let smallest = Math.min(...arr)
+  arr.splice(arr.indexOf(smallest), 1)
+  return arr
+}
+remove([52, 2, 3, 4, 0, 10, 0])
+
+function flipEndChars(str) {
+  let arr = str.split('');
+  let firstchar = arr[0]
+  let lastchar = arr[arr.length - 1]
+  arr[0] = lastchar
+  arr[arr.length - 1] = firstchar
+  return arr.join('')
+}
+flipEndChars("Cat, dog, and mouse.")
+
+function indexOfCaps(str) {
+  let arr = []
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i]
+    if (char == char.toUpperCase() && Number.isInteger(parseInt(char)) === false && char !== " ") {
+      arr.push(i)
+    }
+  }
+  return arr
+}
+let str = "H 3 83l"
+indexOfCaps(str)
