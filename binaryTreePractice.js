@@ -61,36 +61,35 @@ console.log(mirrorBinary(mirrorArray))
 // TREE
 
 class Node {
-  constructor(val, left = null, right = null) {
+  constructor(val, right = null, left = null) {
     this.val = val
     this.right = null
     this.left = null
   }
 }
+
 class BST {
   constructor() {
     this.root = null
   }
   push(val) {
-    let root = this.root
-    if (root === null) {
+    if (this.root == null) {
       this.root = new Node(val)
       return
     }
-    let currentNode = root;
-    let newNode = new Node(val)
+    let currentNode = this.root
     while (currentNode) {
-      if (val < currentNode.value) {
-        if (currentNode.left === null) {
-          currentNode.left = newNode
-          break;
+      if (currentNode.val > val) {
+        if (currentNode.left == null) {
+          currentNode.left = new Node(val)
+          break
         } else {
           currentNode = currentNode.left
         }
       } else {
-        if (currentNode.right === null) {
-          currentNode.right = newNode
-          break;
+        if (currentNode.right == null) {
+          currentNode.right = new Node(val)
+          break
         } else {
           currentNode = currentNode.right
         }
@@ -100,10 +99,13 @@ class BST {
 }
 
 let bst = new BST();
-bst.push(3);
-bst.push(2);
 bst.push(4);
+bst.push(2);
+bst.push(5);
 bst.push(10);
+bst.push(1);
+bst.push(3)
+
 console.log(bst)
 
 
