@@ -209,3 +209,73 @@ function indexOfCaps(str) {
 }
 let str = "H 3 83l"
 indexOfCaps(str)
+
+
+function smStrfromBigStr(short, long) {
+  let result = true
+  for (let i = 0; i < short.length; i++) {
+    let letterfound = false
+    for (let j = 0; j < long.length; j++) {
+      if (short[i] == long[j]) {
+        letterfound = true
+      }
+    }
+    if (letterfound == false) {
+      return result = false
+    }
+  }
+  return result
+}
+//loop through each letter of the short and then nest loop that compares 1 letter to all letters in long, if its not a match then automatically its false
+
+// memoize & closure
+
+const addUp = function() {
+  let cache = {}
+  return function(n) {
+    if (n in cache) {
+      console.log("fetching from cache")
+      return cache[n]
+    } else {
+      sum = n * 10
+      cache[n] = sum
+      return sum
+    }
+  }
+}
+
+
+//create space
+let dict = ["you", "hello", "music", "friend"]
+let smashed = "helloyou"
+
+
+function createSpace(str, dict) {
+  for (let i = 1; i < str.length; i++) {
+    let firstword = str.substring(0, i)
+    if (dict.includes(firstword)) {
+      let secondword = str.substring(i, str.length)
+      if (dict.includes(secondword)) {
+        return firstword + " " + secondword
+      }
+    }
+  }
+  return null
+}
+
+function createSpaceRecursion(str, dict) {
+  if (dict.includes(str) {
+      return str
+    })
+    for (let i = 1; i < str.length; i++) {
+      let firstword = str.substring(0, i)
+      if (dict.includes(firstword)) {
+        let restofstring = str.substring(i, str.length)
+        let nextword = createSpaceRecursion(restofstring, dict)
+        if (nextword != null) {
+          return firstword + " " + nextword
+        }
+      }
+    }
+  return null
+}
